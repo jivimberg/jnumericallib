@@ -6,20 +6,18 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: May 26, 2010
- * Time: 6:53:45 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public class CubicSpline implements Interpolator{
     /**
-     * Una spline cúbica es una spline compuesta de segmentos de polinomios de tercer orden que pasan a traves de una serie de
+     * Una spline c�bica es una spline compuesta de segmentos de polinomios de tercer orden que pasan a traves de una serie de
      * puntos de control. La segunda derivada de cada polinomio es comunmente cero en cada punto final, esto provee las condiciones de contorno que
      * completan el sistema de ecuaciones. Esto produce lo llamado spline cúbica "natural" y lleva a un sistema simple tridiagonal que puede
      * ser facilmente resuelto dando los coeficientes de los polinomios
      *
-     * @author Juan Ignacio Vimberg
      */
 
     /*

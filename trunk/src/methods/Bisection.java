@@ -4,11 +4,10 @@ import jMathLib.exceptions.RootNotFoundException;
 
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 5:59:43 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public abstract class Bisection {
 
@@ -19,7 +18,6 @@ public abstract class Bisection {
      * @param right        el valor de la derecha
      * @param error      el nivel de error tolerado
      * @param iterations el máximo número de iteraciones deseadas
-     * @author Juan Ignacio Vimberg
      */
 
     public double calculate(Function f, double left, double right, double error, int iterations)

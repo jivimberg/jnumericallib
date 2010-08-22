@@ -1,23 +1,21 @@
 package jMathLib.methods;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 4:00:05 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 
 public abstract class Romberg{
 
     /**
      * Romberg genera de un arreglo triangular consistente de las
-     *  estimaciones nÃºmericas de la integral definida
+     *  estimaciones númericas de la integral definida
      *
      * @param from from value.
      * @param to to value.
      * @param maxIterations the maximum steps
-     * @author Juan Ignacio Vimberg
      */
 
     public void calculate(Function f, double from, double to, int maxIterations) {

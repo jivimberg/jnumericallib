@@ -8,17 +8,15 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 5:14:37 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public class NewtonInterpolator implements Interpolator {
 
-      /**
+     /**
      * Método interpolador mediante el uso de Newton-Raphson
-     * @author Juan Ignacio Vimberg
      */
 
 	public double[] divDif(List<Point2D.Double> points) {

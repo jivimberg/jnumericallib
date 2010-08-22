@@ -8,11 +8,10 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 4:15:33 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public class LinearInterpolator implements Interpolator{
 

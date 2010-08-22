@@ -3,24 +3,22 @@ package jMathLib.methods;
 import jMathLib.exceptions.RootNotFoundException;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: May 25, 2010
- * Time: 4:03:49 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public abstract class NewtonRaphson{
     /**
      * Newton-Raphson method finds a root by sucesive derivations.
-     * @author Juan Ignacio Vimberg
      */
 
     /**
-     * Este m√©todo encuentra la ra√≠z de la funci√≥n por medio de Newton Raphson
+     * Este mÈtodo encuentra la raÌz de la funciÛn por medio de Newton Raphson
      *
-     * @param p0            punto de inicio. Debe ser lo m√°s cercano posible a la ra√≠z
+     * @param p0            punto de inicio. Debe ser lo m·s cercano posible a la raÌz
      * @param error         margen de error tolerado
-     * @param maxIterations n√∫mero m√°ximo de iteraciones permitidas
+     * @param maxIterations npumero m·ximo de iteraciones permitidas
      */
     public double findRoot(Function f, Function fderived, double p0, double error, int maxIterations)
             throws RootNotFoundException {

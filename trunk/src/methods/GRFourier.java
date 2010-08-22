@@ -1,11 +1,10 @@
 package jMathLib.methods;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 4:41:08 PM
- * To change this template use File | Settings | File Templates.
+ * 
+ * @author jivimberg
+ * @author danielorozco87
+ *
  */
 public abstract class GRFourier {
 
@@ -19,7 +18,6 @@ public abstract class GRFourier {
      * @param n es la cantidad de funciones base que voy a utilizar
      * @param m es el nro en el que divido el intervalo (-L ; L)
      * @param L es la mitad el período en el cual la funcion se repite.
-     * @author Juan Ignacio Vimberg
      */
 
     double[] a;
