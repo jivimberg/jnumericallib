@@ -3,45 +3,51 @@ package methods;
 import exceptions.RootNotFoundException;
 
 public class Bisection {
+	
+	private static final String METHOD_NAME = "Bisection";
 
     /**
-     * El método de Bisección encuentra la raíz existente entre 2 valores conocidos
+     * El método de Bisección encuentra la raíz existente entre 2 valores conocidos.
+     * Condiciones suficientes: que haya una ra�z en el intervalo, que esa ra�z sea �nica f'(x) != 0 para todo x perteneciente a  [left, right],
+     * la f debe ser continua y f(left) debe tener distinto signo que f(right) 
      *
-     * @param left          el valor de la izquierda
-     * @param right        el valor de la derecha
+     * @param a          el valor de la izquierda
+     * @param b        el valor de la derecha
      * @param error      el nivel de error tolerado
      * @param iterations el máximo número de iteraciones deseadas
-     * @author Juan Ignacio Vimberg
      */
 
-    public double calculate(Function f, double left, double right, double error, int iterations)
+    public static double calculate(Function f, double a, double b, double error, int iterations)
             throws RootNotFoundException {
         int i = 1;
-        double fa = f.eval(left);
+        double fa = f.eval(a); // f evaluated in a
+        
         while (i <= iterations) {
-            double p = left + (right - left) / 2;
-            double fp = f.eval(p);
-            if (fp == 0 || (right - left) / 2 < error) {
+            double p = a + (b - a) / 2; //middle point of the interval
+            double fp = f.eval(p); //f evaluated in p
+            //if fp is root OR the interval is smaller than the tolerated error
+            if (fp == 0 || (b - a) / 2 < error) {
                 return p;
             }
             i += 1;
+            //if fa and fp has the same sign
             if (fa * fp > 0) {
-                left = p;
+                a = p;
                 fa = fp;
             } else {
-                right = p;
+                b = p;
             }
         }
-        throw new RootNotFoundException();
+        throw new RootNotFoundException(METHOD_NAME);
     }
 
+    //TEST
     public static void main(String[] args) throws RootNotFoundException {
         Function f = new Function(){
             public double eval(double x){
-                  return  Math.pow(x,3) + 4 * Math.pow(x,2) -10;
+                 return  Math.pow(x,3) + 4 * Math.pow(x,2) -10;
             }
         };
-//        MyFunction f = new Polynomial(3, new double[]{-10, 0, 4, 1});
         Bisection b = new Bisection();
         // VER EL EJEMPLO EN EL LIBRO
         System.out.println(b.calculate(f, 1, 2, 0.0001, 14));

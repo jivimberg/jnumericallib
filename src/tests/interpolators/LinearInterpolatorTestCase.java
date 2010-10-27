@@ -8,8 +8,9 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinearInterpolatorTest {
+public class LinearInterpolatorTestCase {
 
+	//TODO: terminar!
     @Test
     public void testLinearInterpolator(){
         List<Point2D.Double> points = createPoints();
