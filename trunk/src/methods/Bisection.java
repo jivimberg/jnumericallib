@@ -2,13 +2,6 @@ package methods;
 
 import exceptions.RootNotFoundException;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 5:59:43 PM
- * To change this template use File | Settings | File Templates.
- */
 public class Bisection {
 
     /**

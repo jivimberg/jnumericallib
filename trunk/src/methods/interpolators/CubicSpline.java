@@ -5,13 +5,6 @@ import methods.Function;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: May 26, 2010
- * Time: 6:53:45 PM
- * To change this template use File | Settings | File Templates.
- */
 public class CubicSpline implements Interpolator{
     /**
      * Una spline cúbica es una spline compuesta de segmentos de polinomios de tercer orden que pasan a traves de una serie de

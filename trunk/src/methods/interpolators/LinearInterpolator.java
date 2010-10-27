@@ -5,13 +5,6 @@ import java.util.List;
 
 import methods.Function;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 4:15:33 PM
- * To change this template use File | Settings | File Templates.
- */
 public class LinearInterpolator implements Interpolator{
 
 	public final Function interpolate(final List<Point2D.Double> points) {
