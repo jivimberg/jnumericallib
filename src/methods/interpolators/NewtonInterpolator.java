@@ -1,6 +1,7 @@
 package methods.interpolators;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.List;
 
 import methods.Function;
@@ -45,13 +46,24 @@ public class NewtonInterpolator implements Interpolator {
 	}
 
     public static void main (String[] args){
-//        List<Point2D.Double> points = Utils.createPoints();
-//        NewtonInterpolator li = new NewtonInterpolator();
-//        System.out.println(li.interpolate(points).eval(1));
-//        System.out.println(li.interpolate(points).resolve(2));
-//        System.out.println(li.interpolate(points).resolve(3));
-//        System.out.println(li.interpolate(points).resolve(4));
-//        System.out.println(li.interpolate(points).resolve(5));
-//        System.out.println(li.interpolate(points).resolve(6));
+        List<Point2D.Double> points = createPoints();
+        NewtonInterpolator li = new NewtonInterpolator();
+        Function function = li.interpolate(points);
+        printResult(function);
+    }
+    
+    private static void printResult(Function function) {
+    	for(int i = 0; i<7; i++) {
+    		System.out.println("f("+i+") = " + function.eval(i));
+    	}
+    }
+    
+    public static List<Point2D.Double> createPoints() {
+        List<Point2D.Double> points = new ArrayList<Point2D.Double>();
+        points.add(new Point2D.Double(0, 0));
+        points.add(new Point2D.Double(2, 4));
+        points.add(new Point2D.Double(4, 0));
+        points.add(new Point2D.Double(5, 8));
+        return points;
     }
 }
