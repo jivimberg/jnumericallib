@@ -72,7 +72,7 @@ public class BisectionTestCase {
 	@Test
 	public void calculateTest(){
 		try {
-			double calculateRoot =  Bisection.calculate(function, a, b, error, iterations);
+			double calculateRoot =  Bisection.findRoot(function, a, b, error, iterations);
 			System.out.println("Function: " + functionString + "\n Calculated root: " + calculateRoot + " Expected Root: " + expected);
 			assertEquals("The root founded was not the expected", expected, calculateRoot, 0.0001);
 		} catch (RootNotFoundException e) {
