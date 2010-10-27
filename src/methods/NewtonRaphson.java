@@ -18,29 +18,19 @@ public class NewtonRaphson{
      * @param error         margen de error tolerado
      * @param maxIterations número máximo de iteraciones permitidas
      */
-    public double findRoot(Function f, Function fderived, double p0, double error, int maxIterations)
+    public static double findRoot(Function f, Function fderived, double p0, double error, int maxIterations)
             throws RootNotFoundException {
-        int iterations = 0;
+        int iterations = 1;
         double p = p0;
         while (iterations < maxIterations) {
             //Xn+1 = Xn - f(x) / f'(x)
-            double root = p - f.eval(p) / fderived.eval(p);
-            if (Math.abs(root - p) < error) {
-                return root;
+            double p1 = p - f.eval(p) / fderived.eval(p);
+            if (Math.abs(f.eval(p1)) < error) {
+                return p1;
             }
-            p = root;
+            p = p1;
             iterations++;
         }
         throw new RootNotFoundException(METHOD_NAME);
     }
-
-    public static void main(String[] args) {
-//		try {
-//            Function f = new Function();
-//
-//			System.out.println(new NewtonRaphson().findRoot(f, f, 1.5, 0.01, 1000));
-//		} catch (RootNotFoundException e) {
-//			e.printStackTrace();
-//		}
-	}    
 }

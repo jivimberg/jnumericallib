@@ -17,7 +17,7 @@ public class Bisection {
      * @param iterations el máximo número de iteraciones deseadas
      */
 
-    public static double calculate(Function f, double a, double b, double error, int iterations)
+    public static double findRoot(Function f, double a, double b, double error, int iterations)
             throws RootNotFoundException {
         int i = 1;
         double fa = f.eval(a); // f evaluated in a
@@ -40,17 +40,4 @@ public class Bisection {
         }
         throw new RootNotFoundException(METHOD_NAME);
     }
-
-    //TEST
-    public static void main(String[] args) throws RootNotFoundException {
-        Function f = new Function(){
-            public double eval(double x){
-                 return  Math.pow(x,3) + 4 * Math.pow(x,2) -10;
-            }
-        };
-        Bisection b = new Bisection();
-        // VER EL EJEMPLO EN EL LIBRO
-        System.out.println(b.calculate(f, 1, 2, 0.0001, 14));
-	}
-
 }
