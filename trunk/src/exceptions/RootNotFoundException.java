@@ -1,4 +1,4 @@
-package jMathLib.exceptions;
+package exceptions;
 
 /**
  * Created by IntelliJ IDEA.

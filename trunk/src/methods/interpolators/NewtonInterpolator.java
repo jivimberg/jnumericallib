@@ -1,10 +1,9 @@
-package jMathLib.methods.interpolators;
-
-import jMathLib.methods.Function;
-import org.jetbrains.annotations.NotNull;
+package methods.interpolators;
 
 import java.awt.geom.Point2D;
 import java.util.List;
+
+import methods.Function;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +19,7 @@ public class NewtonInterpolator implements Interpolator {
      * @author Juan Ignacio Vimberg
      */
 
-	private double[] divDif(@NotNull List<Point2D.Double> points) {
+	private double[] divDif(List<Point2D.Double> points) {
 		int N = points.size();
 		double[][] M = new double[N][N];
 		for (int i = 0; i < N; i++)

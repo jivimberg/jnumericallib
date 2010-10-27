@@ -1,7 +1,7 @@
-package jMathLib.tests.interpolators;
+package tests.interpolators;
 
-import jMathLib.methods.Function;
-import jMathLib.methods.interpolators.LinearInterpolator;
+import methods.Function;
+import methods.interpolators.LinearInterpolator;
 import org.junit.Test;
 
 import java.awt.geom.Point2D;

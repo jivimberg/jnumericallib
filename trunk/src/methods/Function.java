@@ -1,6 +1,4 @@
-package jMathLib.methods;
-
-import org.jetbrains.annotations.NotNull;
+package methods;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,5 +9,5 @@ import org.jetbrains.annotations.NotNull;
  */
 public abstract class Function {
 
-    public abstract double eval (@NotNull double x);
+    public abstract double eval (double x);
 }

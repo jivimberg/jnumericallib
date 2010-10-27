@@ -1,7 +1,6 @@
-package jMathLib.methods;
+package methods;
 
-import jMathLib.exceptions.RootNotFoundException;
-
+import exceptions.RootNotFoundException;
 
 /**
  * Created by IntelliJ IDEA.

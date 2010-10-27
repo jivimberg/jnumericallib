@@ -1,7 +1,6 @@
-package jMathLib.methods.interpolators;
+package methods.interpolators;
 
-import jMathLib.methods.Function;
-import org.jetbrains.annotations.NotNull;
+import methods.Function;
 
 import java.awt.geom.Point2D;
 import java.util.List;
@@ -15,5 +14,5 @@ import java.util.List;
  */
 public interface Interpolator {
 
-    public Function interpolate(@NotNull List<Point2D.Double> points);
+    public Function interpolate( List<Point2D.Double> points);
 }

@@ -1,11 +1,9 @@
-package jMathLib.methods.interpolators;
-
-import jMathLib.methods.Function;
-import org.jetbrains.annotations.NotNull;
+package methods.interpolators;
 
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
+
+import methods.Function;
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,7 +14,7 @@ import java.util.List;
  */
 public class LinearInterpolator implements Interpolator{
 
-	public final Function interpolate(@NotNull final List<Point2D.Double> points) {
+	public final Function interpolate(final List<Point2D.Double> points) {
 		return new Function() {
 			public double eval(double x) {
 				double w = 0;
