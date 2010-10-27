@@ -1,4 +1,4 @@
-package jMathLib.methods;
+package methods;
 
 /**
  * Created by IntelliJ IDEA.
