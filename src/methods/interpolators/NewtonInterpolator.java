@@ -5,13 +5,6 @@ import java.util.List;
 
 import methods.Function;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 5:14:37 PM
- * To change this template use File | Settings | File Templates.
- */
 public class NewtonInterpolator implements Interpolator {
 
       /**

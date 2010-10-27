@@ -1,13 +1,5 @@
 package methods;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: Jul 7, 2010
- * Time: 4:00:05 PM
- * To change this template use File | Settings | File Templates.
- */
-
 public class Romberg{
 
     /**

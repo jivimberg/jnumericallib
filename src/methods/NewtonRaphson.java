@@ -2,13 +2,6 @@ package methods;
 
 import exceptions.RootNotFoundException;
 
-/**
- * Created by IntelliJ IDEA.
- * User: jivimberg
- * Date: May 25, 2010
- * Time: 4:03:49 PM
- * To change this template use File | Settings | File Templates.
- */
 public class NewtonRaphson{
     /**
      * Newton-Raphson method finds a root by sucesive derivations.
