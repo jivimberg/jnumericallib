@@ -3,6 +3,9 @@ package methods;
 import exceptions.RootNotFoundException;
 
 public class NewtonRaphson{
+	
+	private static final String METHOD_NAME = "NewtonRaphson";
+	
     /**
      * Newton-Raphson method finds a root by sucesive derivations.
      * @author Juan Ignacio Vimberg
@@ -28,7 +31,7 @@ public class NewtonRaphson{
             p = root;
             iterations++;
         }
-        throw new RootNotFoundException();
+        throw new RootNotFoundException(METHOD_NAME);
     }
 
     public static void main(String[] args) {
