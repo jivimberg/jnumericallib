@@ -1,8 +1,9 @@
 package methods.interpolators;
 
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
+
+import methods.Function;
 
 /**
  * Una spline cubica es una spline compuesta de segmentos de polinomios de tercer orden que pasan a traves de una serie de
@@ -14,7 +15,7 @@ import java.util.List;
  * @author danielorozco87
  */
 
-public class CubicSpline{
+public class CubicSpline implements Interpolator{
 	
 	private static final String METHOD_NAME = "Cubic Spline";
     
@@ -23,9 +24,34 @@ public class CubicSpline{
      * @param points  Set de puntos a usarse en la interpolacion
      */
 	
-    public double[][] interpolate(List<Point2D.Double> points) {
-
-        int n = points.size();
+    public Function interpolate(final List<Point2D.Double> points) {
+        final int n = points.size();
+        final double[][] constants = this.calculateConstant(points);
+        return new Function() {
+        	public double eval(double x){
+        		if(x<points.get(0).x || x>points.get(n-1).x) {
+        			//TODO que devuelva una exception
+        			return 0;
+        		}
+        		int i = 0;
+        		for(; i<points.size() - 1; i++) {
+        			if(x <= points.get(i + 1).x) break;
+        		}
+        		double constant3 = constants[i][3];
+        		double constant2 = constants[i][2];
+        		double constant1 = constants[i][1];
+        		double constant0 = constants[i][0];
+        		constant3 = constant3 * Math.pow(x - points.get(i).x, 3);
+        		constant2 = constant2 * Math.pow(x - points.get(i).x, 2);
+        		constant1 = constant1 * Math.pow(x - points.get(i).x, 1);
+        		constant0 = constant0 * Math.pow(x - points.get(i).x, 0);
+        		return  constant3 + constant2 + constant1 + constant0;
+        	}
+        };
+    }
+    
+    private double[][] calculateConstant(final List<Point2D.Double> points) {
+    	final int n = points.size();
 
         double[] h = new double[n];
         double[] w = new double[n];
@@ -71,24 +97,4 @@ public class CubicSpline{
         return c;
     }
 
-    public static void main (String[] args){
-    	List<Point2D.Double> points = new ArrayList<Point2D.Double>();
-    	points.add(new Point2D.Double(40, 390));
-    	points.add(new Point2D.Double(45, 340));
-    	points.add(new Point2D.Double(50, 290));
-    	points.add(new Point2D.Double(55, 250));
-    	points.add(new Point2D.Double(60, 210));
-    	points.add(new Point2D.Double(65, 180));
-    	points.add(new Point2D.Double(70, 160));
-    	
-    	CubicSpline li = new CubicSpline();
-    	double [][] result = li.interpolate(points);
-    	
-    	for (int i = 0; i < result.length; i++) {
-    		System.out.println("d = "+result[i][0]);
-    		System.out.println("c = "+result[i][1]);
-    		System.out.println("b = "+result[i][2]);
-    		System.out.println("a = "+result[i][3]);
-      }
-    }
 }

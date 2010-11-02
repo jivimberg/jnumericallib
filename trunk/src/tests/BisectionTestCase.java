@@ -27,8 +27,6 @@ public class BisectionTestCase {
 	private double error;
 	private int iterations;
 	
-
-	
 	public BisectionTestCase(Function function, String functionString,
 			 double a, double b, double error, int iterations, double expected) {
 		super();
