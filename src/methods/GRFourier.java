@@ -1,18 +1,18 @@
 package methods;
 
+
 public class GRFourier {
 
     /**
      * El metodo de Goertzel-Reinsh para funciones periodicas aproxima una
      * funcion en base a otra funcion creada a partir de funciones base entre
-     * senos y cosenos de una manera más eficiente que el método discreto de
+     * senos y cosenos de una manera mas eficiente que el metodo discreto de
      * Fourier
      *
-     * @param f function
+     * @param f funcion
      * @param n es la cantidad de funciones base que voy a utilizar
      * @param m es el nro en el que divido el intervalo (-L ; L)
-     * @param L es la mitad el período en el cual la funcion se repite.
-     * @author Juan Ignacio Vimberg
+     * @param L es la mitad el periodo en el cual la funcion se repite.
      */
 
     double[] a;
@@ -51,18 +51,18 @@ public class GRFourier {
             cos = cos * cos1 - sinAux * sin1;
         }
 
-        Function[] terms = new Function[2 * n];
-//        terms[0] = new Polynomial(0, new double[]{a[0] / 2});
-//        terms[1] = new Polynomial(0, new double[]{b[0]});
-//        for (int i = 1; i < n; i++) {
-//            terms[2 * i] = new Compound(new Polynomial(1, new double[]{0, a[i]}), new Cos(new Polynomial(1, new double[]{0,
-//                    i * Math.PI / L})));
-//            terms[2 * i + 1] = new Compound(new Polynomial(1, new double[]{0, b[i]}), new Sin(new Polynomial(1, new double[]{0,
-//                    i * Math.PI / L })));
+//        Function[] terms = new Function[2 * n];
+//		terms[0] = new Polynomial(0, new double[] { a[0] / 2 });
+//		terms[1] = new Polynomial(0, new double[] { b[0] });
+//		for (int i = 1; i < n; i++) {
+//			terms[2 * i] = new Compound(new Polynomial(1, new double[] { 0, a[i] }), new Compound(new Cos(), new Polynomial(1, new double[] { 0,
+//					i * Math.PI / L })));
+//			terms[2 * i + 1] = new Compound(new Polynomial(1, new double[] { 0, b[i] }), new Compound(new Sin(), new Polynomial(1, new double[] { 0,
+//					i * Math.PI / L })));
 //		}
 //		return new Sum(terms);
         return null;
-	}
+    }
 
     public static void main (String[] args){
 //         GRFourier gf = new GRFourier();
