@@ -1,12 +1,12 @@
 package exceptions;
 
-public class RootNotFoundException extends Exception {
+public class RaizNoEncontradaExcepcion extends Exception {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 2987036985370625806L;
 
-	public RootNotFoundException(String methodName) {
+	public RaizNoEncontradaExcepcion(String methodName) {
         super(methodName + ": Root not found");
     }
 }

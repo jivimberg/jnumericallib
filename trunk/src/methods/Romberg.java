@@ -12,7 +12,7 @@ public class Romberg {
      * @param n cantidad de intervalos
      * @return la funcion tabulada
      */
-    private static double[] tabulate(Function f, double a, double b, int n) {
+    private static double[] tabulate(Funcion f, double a, double b, int n) {
         double[] t = new double[n+1];
         double h = (b-a)/n;
         for (int i = 0; i < n+1; i++) {
@@ -82,7 +82,7 @@ public class Romberg {
      * @param k cantidad de intervalos
      * @return la integral calculada
      */
-    public static double romberg(Function f, double a, double b, int k) {
+    public static double romberg(Funcion f, double a, double b, int k) {
         int n = 1 << k;
         double[] t = tabulate(f, a, b, n);
         return romberg(t,a, b);

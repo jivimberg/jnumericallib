@@ -21,7 +21,7 @@ public class GRFourier {
     double[] a;
     double[] b;
 
-    public double solve(Function f, int n, int m, double L, double point) {
+    public double solve(Funcion f, int n, int m, double L, double point) {
 
         double sin = 0;
         double cos = 1;
@@ -91,7 +91,7 @@ public class GRFourier {
 
     public static void main (String[] args){
     	GRFourier gf = new GRFourier();
-        Function f = createFunction();
+        Funcion f = createFunction();
         for(int i = 0; i<10; i++) {
         	double resutl = gf.solve(f, 10, 10, Math.PI, i);
         	System.out.println(resutl);
@@ -101,8 +101,8 @@ public class GRFourier {
     /**
      * @return Funcion X^2 
      */
-    private static Function createFunction() {
-    	return new Function() {
+    private static Funcion createFunction() {
+    	return new Funcion() {
 
 			@Override
 			public double eval(double x) {

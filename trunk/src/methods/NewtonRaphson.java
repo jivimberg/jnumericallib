@@ -1,6 +1,6 @@
 package methods;
 
-import exceptions.RootNotFoundException;
+import exceptions.RaizNoEncontradaExcepcion;
 
 public class NewtonRaphson{
 	
@@ -18,8 +18,8 @@ public class NewtonRaphson{
      * @param error         margen de error tolerado
      * @param maxIterations número máximo de iteraciones permitidas
      */
-    public static double findRoot(Function f, Function fderived, double p0, double error, int maxIterations)
-            throws RootNotFoundException {
+    public static double findRoot(Funcion f, Funcion fderived, double p0, double error, int maxIterations)
+            throws RaizNoEncontradaExcepcion {
         int iterations = 1;
         double p = p0;
         while (iterations < maxIterations) {
@@ -31,6 +31,6 @@ public class NewtonRaphson{
             p = p1;
             iterations++;
         }
-        throw new RootNotFoundException(METHOD_NAME);
+        throw new RaizNoEncontradaExcepcion(METHOD_NAME);
     }
 }

@@ -6,20 +6,20 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 import java.util.Collection;
 
-import methods.Bisection;
-import methods.Function;
+import methods.Biseccion;
+import methods.Funcion;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import exceptions.RootNotFoundException;
+import exceptions.RaizNoEncontradaExcepcion;
 
 @RunWith(value = Parameterized.class)
 public class BisectionTestCase {
 	
-	private Function function;
+	private Funcion function;
 	private String functionString;
 	private double expected;
 	private double a;
@@ -27,7 +27,7 @@ public class BisectionTestCase {
 	private double error;
 	private int iterations;
 	
-	public BisectionTestCase(Function function, String functionString,
+	public BisectionTestCase(Funcion function, String functionString,
 			 double a, double b, double error, int iterations, double expected) {
 		super();
 		this.function = function;
@@ -42,7 +42,7 @@ public class BisectionTestCase {
 	@Parameters
     public static Collection<Object[]> data() {
     	//Function 1
-    	final Function f1 = new Function(){
+    	final Funcion f1 = new Funcion(){
             public double eval(double x){
             	return Math.pow(Math.E, -x) - Math.log(x) / Math.log(Math.E);
             }
@@ -51,7 +51,7 @@ public class BisectionTestCase {
         double expectedRoot1 = 1.30975341796875;
         
         //Function 2
-    	final Function f2 = new Function(){
+    	final Funcion f2 = new Funcion(){
             public double eval(double x){
                 return  Math.pow(x,3) + 4 * Math.pow(x,2) - 10;
             }
@@ -70,10 +70,10 @@ public class BisectionTestCase {
 	@Test
 	public void calculateTest(){
 		try {
-			double calculateRoot =  Bisection.findRoot(function, a, b, error, iterations);
+			double calculateRoot =  Biseccion.findRoot(function, a, b, error, iterations);
 			System.out.println("Function: " + functionString + "\n Calculated root: " + calculateRoot + " Expected Root: " + expected);
 			assertEquals("The root founded was not the expected", expected, calculateRoot, 0.0001);
-		} catch (RootNotFoundException e) {
+		} catch (RaizNoEncontradaExcepcion e) {
 			if(!functionString.equalsIgnoreCase("Function will Fail")){
 				e.printStackTrace();
 				fail("Root Not Found Exception thrown");

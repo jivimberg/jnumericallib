@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.Arrays;
 import java.util.Collection;
 
-import methods.Function;
+import methods.Funcion;
 import methods.NewtonRaphson;
 
 import org.junit.Test;
@@ -14,20 +14,20 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import exceptions.RootNotFoundException;
+import exceptions.RaizNoEncontradaExcepcion;
 
 @RunWith(value = Parameterized.class)
 public class NewtonRaphsonTestCase {
 	
-	private Function function;
-	private Function derivedFunction;
+	private Funcion function;
+	private Funcion derivedFunction;
 	private String functionString;
 	private double initp;
 	private double error;
 	private int maxIter;
 	private double expectedRoot;
 	
-	public NewtonRaphsonTestCase(Function function, Function derivedFunction, String functionString,
+	public NewtonRaphsonTestCase(Funcion function, Funcion derivedFunction, String functionString,
 			double initp, double error, int maxIter, double expectedRoot) {
 		super();
 		this.function = function;
@@ -42,13 +42,13 @@ public class NewtonRaphsonTestCase {
 	@Parameters
     public static Collection<Object[]> data() {
     	//Function 1
-    	final Function f1 = new Function(){
+    	final Funcion f1 = new Funcion(){
             public double eval(double x){
             	return Math.cos(x) - Math.pow(x, 3);
             }
         };
         //Derived Function 1
-    	final Function derivedf1 = new Function(){
+    	final Funcion derivedf1 = new Funcion(){
             public double eval(double x){
             	return -1 * Math.sin(x) - 3 * Math.pow(x, 2);
             }
@@ -57,13 +57,13 @@ public class NewtonRaphsonTestCase {
         double expectedRoot1 = 0.865474033111;
         
         //Function 2
-    	final Function f2 = new Function(){
+    	final Funcion f2 = new Funcion(){
             public double eval(double x){
                 return  4 * Math.pow(x,2) - 10;
             }
         };
         //Derived Function 2
-    	final Function derivedf2 = new Function(){
+    	final Funcion derivedf2 = new Funcion(){
             public double eval(double x){
             	return 8 * x;
             }
@@ -85,7 +85,7 @@ public class NewtonRaphsonTestCase {
 			double calculateRoot =  NewtonRaphson.findRoot(function, derivedFunction, initp, error, maxIter);
 			System.out.println("Function: " + functionString + "\n Calculated root: " + calculateRoot + " Expected Root: " + expectedRoot);
 			assertEquals("The root founded was not the expected", expectedRoot, calculateRoot, 0.00001);
-		} catch (RootNotFoundException e) {
+		} catch (RaizNoEncontradaExcepcion e) {
 			if(!functionString.equalsIgnoreCase("Function will Fail")){
 				e.printStackTrace();
 				fail("Root Not Found Exception thrown");

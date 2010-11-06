@@ -1,7 +1,7 @@
 package tests.interpolators;
 
 import static org.junit.Assert.assertEquals;
-import methods.Function;
+import methods.Funcion;
 import methods.interpolators.InterpolacionLineal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,9 +20,9 @@ public class InterpolacionLinealTestCase {
 	private static final double ERROR = 0.000001;
 
 	private List<Point2D.Double> points;
-	private Function expectedFunction;
+	private Funcion expectedFunction;
 	
-	public InterpolacionLinealTestCase(List<Point2D.Double> points, Function expectedFunction) {
+	public InterpolacionLinealTestCase(List<Point2D.Double> points, Funcion expectedFunction) {
 		this.points = points;
 		this.expectedFunction = expectedFunction;
 	}
@@ -30,7 +30,7 @@ public class InterpolacionLinealTestCase {
     @Test
     public void testLinearInterpolator(){
         InterpolacionLineal li = new InterpolacionLineal();
-        Function interpolation = li.interpolate(points);
+        Funcion interpolation = li.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));
         }
@@ -41,7 +41,7 @@ public class InterpolacionLinealTestCase {
     	assertEquals("The index founded was not the expected", expected, actual, ERROR);
 	}
 	
-    private void printResult(Function function) {
+    private void printResult(Funcion function) {
     	for(int i = 0; i<7; i++) {
     		System.out.println("f("+i+") = " + function.eval(i));
     	}
@@ -56,8 +56,8 @@ public class InterpolacionLinealTestCase {
         return points;
     }
      
-    private static Function createExpectedFunction() {
-    	return new Function() {
+    private static Funcion createExpectedFunction() {
+    	return new Funcion() {
     		@Override
     		public double eval(double x) {
     			if(x == 0) return 0;

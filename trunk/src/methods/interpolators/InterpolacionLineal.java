@@ -3,7 +3,7 @@ package methods.interpolators;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-import methods.Function;
+import methods.Funcion;
 
 /**
  * La <b>Interpolacion Lineal</b> es un caso particular de la Interpolacion general de Newton. Con el polinomio 
@@ -20,8 +20,8 @@ public class InterpolacionLineal implements Interpolador{
      * @return Function generada por la interpolacion
      */
 
-	public final Function interpolate(final List<Point2D.Double> points) {
-		return new Function() {
+	public final Funcion interpolate(final List<Point2D.Double> points) {
+		return new Funcion() {
 			public double eval(double x) {
 				double w = 0;
 				if (x <= points.get(0).x)

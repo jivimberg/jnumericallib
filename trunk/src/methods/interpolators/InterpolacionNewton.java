@@ -4,7 +4,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
-import methods.Function;
+import methods.Funcion;
 
 /**
  * La <b>Interpolacion De Newton</b> es una funcion que interpola una serie de puntos utilizando el polinomio de Newton.
@@ -20,9 +20,9 @@ public class InterpolacionNewton implements Interpolador {
      * @return Function generada por la interpolacion
      */
 	
-	public final Function interpolate(final List<Point2D.Double> points) {
+	public final Funcion interpolate(final List<Point2D.Double> points) {
 		final double[] a = divDif(points);
-		return new Function() {
+		return new Funcion() {
 			public double eval(double x) {
 				return horner(a, points).eval(x);
 			}
@@ -40,8 +40,8 @@ public class InterpolacionNewton implements Interpolador {
 		return M[0];
 	}
 
-	private final Function horner(final double[] a, final List<Point2D.Double> points) {
-		return new Function() {
+	private final Funcion horner(final double[] a, final List<Point2D.Double> points) {
+		return new Funcion() {
 			public double eval(double x) {
 				int n = a.length;
 				double v = a[n - 1];
@@ -55,11 +55,11 @@ public class InterpolacionNewton implements Interpolador {
     public static void main (String[] args){
         List<Point2D.Double> points = createPoints();
         InterpolacionNewton li = new InterpolacionNewton();
-        Function function = li.interpolate(points);
+        Funcion function = li.interpolate(points);
         printResult(function);
     }
     
-    private static void printResult(Function function) {
+    private static void printResult(Funcion function) {
     	for(int i = 0; i<7; i++) {
     		System.out.println("f("+i+") = " + function.eval(i));
     	}
