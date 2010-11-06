@@ -5,7 +5,20 @@ import java.util.List;
 
 import methods.Function;
 
-public class LinearInterpolator implements Interpolator{
+/**
+ * La <b>Interpolacion Lineal</b> es un caso particular de la Interpolacion general de Newton. Con el polinomio 
+ * de interpolacion de Newton se logra aproximar un valor de la función f(x) en un valor desconocido de x. El 
+ * caso particular, para que una interpolacion sea lineal, es que el que se utiliza un polinomio de interpolacion 
+ * de grado 1.
+ *
+ */
+public class InterpolacionLineal implements Interpolador{
+	
+	/**
+     * Interpola la funcion usando <b>Interpolacion Lineal</b>
+     * @param points Set de puntos a usarse para la interpolacion
+     * @return Function generada por la interpolacion
+     */
 
 	public final Function interpolate(final List<Point2D.Double> points) {
 		return new Function() {

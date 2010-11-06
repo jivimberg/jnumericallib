@@ -9,8 +9,8 @@ import java.util.Collection;
 import java.util.List;
 
 import methods.Function;
-import methods.interpolators.CubicSpline;
-import methods.interpolators.Interpolator;
+import methods.interpolators.SplineCubica;
+import methods.interpolators.Interpolador;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(value = Parameterized.class)
-public class CubicSplineTestCase {
+public class SplineCubicaTestCase {
 
 	private static final double ERROR = 0.0001;
 
@@ -26,7 +26,7 @@ public class CubicSplineTestCase {
 	private double[] xValues;
 	private double[] yValues;
 	
-	public CubicSplineTestCase(List<Point2D.Double> points, double[] xValues, double[] yValues) {
+	public SplineCubicaTestCase(List<Point2D.Double> points, double[] xValues, double[] yValues) {
 		this.points = points;
 		this.xValues = xValues;
 		this.yValues = yValues;
@@ -34,7 +34,7 @@ public class CubicSplineTestCase {
 	
 	@Test
 	public void testCubicSpline() {
-		Interpolator li = new CubicSpline();
+		Interpolador li = new SplineCubica();
     	Function function = li.interpolate(points);
     	
     	for (int i = 0; i < xValues.length; i++) {

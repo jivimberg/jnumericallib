@@ -2,7 +2,7 @@ package tests.interpolators;
 
 import static org.junit.Assert.assertEquals;
 import methods.Function;
-import methods.interpolators.LinearInterpolator;
+import methods.interpolators.InterpolacionLineal;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,21 +15,21 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(value = Parameterized.class)
-public class LinearInterpolatorTestCase {
+public class InterpolacionLinealTestCase {
 	
 	private static final double ERROR = 0.000001;
 
 	private List<Point2D.Double> points;
 	private Function expectedFunction;
 	
-	public LinearInterpolatorTestCase(List<Point2D.Double> points, Function expectedFunction) {
+	public InterpolacionLinealTestCase(List<Point2D.Double> points, Function expectedFunction) {
 		this.points = points;
 		this.expectedFunction = expectedFunction;
 	}
 	
     @Test
     public void testLinearInterpolator(){
-        LinearInterpolator li = new LinearInterpolator();
+        InterpolacionLineal li = new InterpolacionLineal();
         Function interpolation = li.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));

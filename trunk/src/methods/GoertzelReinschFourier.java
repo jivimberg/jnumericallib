@@ -1,8 +1,8 @@
 package methods;
 
-public class Goertzel
+public class GoertzelReinschFourier
 {
-    public static void goertzel(double y[], double a[], double b[]) {
+    public static void eval(double y[], double a[], double b[]) {
 
         int m = y.length - 1;
         final double HM = 2.0/(m+1);
@@ -27,19 +27,15 @@ public class Goertzel
             double t = s*cc+c*ss;
             c = c*cc-s*ss;
             s = t;
-
         }
-
     }
 
-    private static double truncate(double v)
-    {
+    private static double truncate(double v) {
         return Math.floor(v*100000)/100000;
     }
 
-    public static void main(String[] args)
-    {
-        Goertzel g = new Goertzel();
+    public static void main(String[] args) {
+        GoertzelReinschFourier g = new GoertzelReinschFourier();
         double yr[] = new double[16];
         double yi[] = new double[16];
         double a[] = new double[16];
@@ -51,7 +47,7 @@ public class Goertzel
 //            yr[i] = Math.sin(Math.PI/10.0*i);
         }
         System.out.println("--- Goertzel");
-        g.goertzel(yr, a, b);
+        g.eval(yr, a, b);
 
         for (int i = 1; i < a.length; i++) {
             System.out.println(i + ": " + truncate(a[i]) + ", " + truncate(b[i]));
@@ -105,9 +101,6 @@ public class Goertzel
             mmax = istep;
         }
     }
-
-
-
 }
 
 

@@ -6,12 +6,28 @@ import java.util.List;
 
 import methods.Function;
 
-public class NewtonInterpolator implements Interpolator {
+/**
+ * La <b>Interpolacion De Newton</b> es una funcion que interpola una serie de puntos utilizando el polinomio de Newton.
+ * Con el polinomio de interpolacion de Newton se logra aproximar un valor de la función f(x) en un valor desconocido de x. 
+ * Este polinomio puede ser de grado 0, caso particular llamado <i>Interpolacion Lineal</i>, o de grado mayor.
+ *
+ */
+public class InterpolacionNewton implements Interpolador {
 
-      /**
-     * MÃ©todo interpolador mediante el uso de Newton-Raphson
-     * @author Juan Ignacio Vimberg
+	/**
+     * Interpola la funcion usando <b>Interpolacion de Newton</b>
+     * @param points Set de puntos a usarse para la interpolacion
+     * @return Function generada por la interpolacion
      */
+	
+	public final Function interpolate(final List<Point2D.Double> points) {
+		final double[] a = divDif(points);
+		return new Function() {
+			public double eval(double x) {
+				return horner(a, points).eval(x);
+			}
+        };
+	}
 
 	private double[] divDif(List<Point2D.Double> points) {
 		int N = points.size();
@@ -36,18 +52,9 @@ public class NewtonInterpolator implements Interpolator {
         };
 	}
 
-	public final Function interpolate(final List<Point2D.Double> points) {
-		final double[] a = divDif(points);
-		return new Function() {
-			public double eval(double x) {
-				return horner(a, points).eval(x);
-			}
-        };
-	}
-
     public static void main (String[] args){
         List<Point2D.Double> points = createPoints();
-        NewtonInterpolator li = new NewtonInterpolator();
+        InterpolacionNewton li = new InterpolacionNewton();
         Function function = li.interpolate(points);
         printResult(function);
     }
