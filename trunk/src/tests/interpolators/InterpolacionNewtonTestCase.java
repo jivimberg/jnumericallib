@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.List;
 
 import methods.Funcion;
-import methods.interpolators.InterpolacionLineal;
 import methods.interpolators.InterpolacionNewton;
 
 import org.junit.Test;

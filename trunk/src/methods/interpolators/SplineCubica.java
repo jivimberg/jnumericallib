@@ -18,7 +18,7 @@ public class SplineCubica implements Interpolador{
     /**
      * Interpola la funcion usando <b>Spline Cubica Natural</b>
      * @param points Set de puntos a usarse para la interpolacion
-     * @return Function generada por la interpolacion
+     * @return Funcion generada por la interpolacion
      */
 	
     public Funcion interpolate(final List<Point2D.Double> points) {
