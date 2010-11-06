@@ -5,7 +5,7 @@ package methods;
  * El usuario debe extender de esta clase e implementar el metodo eval.
  * 
  * <b>Ejemplo:</b>
- * <code>
+ * <pre>
  * La funcion cos(x) - x^3 se modela de la siguiente manera
  * 
  * final Funcion f1 = new Funcion(){
@@ -13,7 +13,7 @@ package methods;
  *          	return Math.cos(x) - Math.pow(x, 3);
  *           }
  *      };
- *<code>
+ * <pre>
  */
 public abstract class Funcion {
 
