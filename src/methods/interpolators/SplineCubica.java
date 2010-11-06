@@ -7,10 +7,12 @@ import methods.Funcion;
 
 /**
  * Una <b>Spline Cubica</b> es una Spline compuesta de segmentos de polinomios de tercer orden que pasan a 
- * traves de una serie de puntos de control. La segunda derivada de cada polinomio es comunmente cero en 
- * cada punto final, esto provee las condiciones de contorno que completan el sistema de ecuaciones. Esto 
- * produce lo llamado <b>Spline Cubica <i>Natural</i></b> y lleva a un sistema simple tridiagonal que puede
- * ser facilmente resuelto dando los coeficientes de los polinomios.
+ * traves de una serie de puntos de control. Una spline es una curva definida en porciones mediante polinomios.<br>
+ * La segunda derivada de cada polinomio es comunmente cero en cada punto final, esto provee las condiciones de 
+ * contorno que completan el sistema de ecuaciones. Esto produce lo llamado <b>Spline Cubica <i>Natural</i></b> 
+ * y lleva a un sistema simple tridiagonal que puede ser facilmente resuelto dando los coeficientes de los polinomios.
+ * <br>
+ * <img src="../../resources/imagenSplineCubica.png" alt=""/>
  */
 
 public class SplineCubica implements Interpolador{
