@@ -1,48 +1,91 @@
 package methods;
 
-public class Romberg{
+public class Romberg {
+
+	 /**
+     * Tabula una funcion.
+     * Evalua la funcion en el intervalo cerrado [a,b] y devuelve un arreglo con n+1
+     * elementos.
+     * @param f funcion a ser tabulada
+     * @param a comienzo del intervalo
+     * @param b fin del intervalo
+     * @param n cantidad de intervalos
+     * @return la funcion tabulada
+     */
+    private static double[] tabulate(Function f, double a, double b, int n) {
+        double[] t = new double[n+1];
+        double h = (b-a)/n;
+        for (int i = 0; i < n+1; i++) {
+            t[i] = f.eval(a+(i*h));
+        }
+        return t;
+    }
+
 
     /**
-     * Romberg genera de un arreglo triangular consistente de las
-     *  estimaciones nÃºmericas de la integral definida
-     *
-     * @param from from value.
-     * @param to to value.
-     * @param maxIterations the maximum steps
-     * @author Juan Ignacio Vimberg
+     * Integra por trapecios una funcion tabulada en 2^k intervalos.
+     * @param t funcion tabulada
+     * @param a comienzo del intervalo
+     * @param b fin del intervalo
+     * @param k cantidad de intervalos
+     * @return la integral calculada por trapecios
      */
-
-    public void calculate(Function f, double from, double to, int maxIterations) {
-        double[][] r = new double[3][20];
-        double h = to - from;
-        r[1][1] = (h / 2) * (f.eval(from) + f.eval(to));
-        System.out.println(r[1][1]);
-        for (int i = 2; i <= maxIterations; i++) {
-            r[2][1] = 0.5 * (r[1][1] + sum(f, from, i, h));
-            System.out.print(r[2][1] + "  ");
-            for (int j = 2; j <= i; j++) {
-                r[2][j] = r[2][j - 1] + (r[2][j - 1] - r[1][j - 1]) / (Math.pow(4, j - 1) - 1);
-                System.out.print(r[2][j] + "  ");
-            }
-            h = h / 2;
-            for (int j = 1; j <= i; j++) {
-                r[1][j] = r[2][j];
-            }
-            System.out.println("");
+    public static double trapecios(double[] t, double a, double b, int k) {
+        int n = (int) Math.pow(2,k);
+        double h = (b-a)/n;        
+        int increment = t.length/n;
+        double accum = 0;
+        for (int i = increment; i < t.length-1; i+=increment) {
+            accum += t[i];
         }
+        return (t[0]+2*accum+t[t.length-1])*h/2;
     }
 
-    private double sum(Function f, double a, int n, double h) {
-        double result = 0;
-        for (int i = 1; i <= Math.pow(2, n - 2); i++) {
-            result += f.eval(a + (i - 0.5) * h);
+    /**
+     * Integra por romberg una funcion tabulada en 2^k intervalos.
+     * El tamanño de t debe ser 2^k+1.
+     * @param t funcion tabulada
+     * @param a comienzo del intervalo
+     * @param b fin del intervalo
+     * @return la integral calculada
+     */
+    private static double romberg(double[] t, double a, double b) {
+        int v = (int)(Math.log(t.length) / Math.log(2));
+        if( Math.abs(Math.pow(2,v)- (t.length-1)) > 0.0001) {
+            throw new IllegalArgumentException("" + t.length);
         }
-        return result * h;
+        double[] rn = new double[v];
+
+        //Primera pasada, calcular las diferentes aproximaciones por trapecios.
+        for (int i = 0; i < rn.length; i++) {
+            rn[i] = trapecios(t, a, b, i);
+        }
+
+        //Correccion por romberg.
+        for(int k = 1; k < rn.length-1; k++) {
+            final double c = Math.pow(4, k);
+            int jend = rn.length - k - 1;
+            for(int j = 0; j < jend; j++ ) {
+                rn[j] = ((c* rn[j+1])- rn[j])/(c-1);
+            }
+            rn[jend] = Double.NaN; // "limpio" el arreglo para detectar bugs.
+        }
+        return rn[0];
     }
 
-    public static void main(String[] args) {
-//        Romberg romberg = new Romberg();
-//        Function f = new Function();
-//        romberg.calculate(f, -0.5, 0.5, 10);
-	}
+
+    /**
+     * Integra por romberg una funcion tabulada en 2^k intervalos.
+     * @param f Función a integrar
+     * @param a comienzo del intervalo
+     * @param b fin del intervalo
+     * @param k cantidad de intervalos
+     * @return la integral calculada
+     */
+    public static double romberg(Function f, double a, double b, int k) {
+        int n = 1 << k;
+        double[] t = tabulate(f, a, b, n);
+        return romberg(t,a, b);
+    }
+
 }

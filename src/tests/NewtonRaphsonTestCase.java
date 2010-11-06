@@ -62,7 +62,7 @@ public class NewtonRaphsonTestCase {
                 return  4 * Math.pow(x,2) - 10;
             }
         };
-        //Derived Function 1
+        //Derived Function 2
     	final Function derivedf2 = new Function(){
             public double eval(double x){
             	return 8 * x;
