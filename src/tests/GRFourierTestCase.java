@@ -3,6 +3,7 @@ package tests;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -10,6 +11,7 @@ import org.junit.runners.Parameterized.Parameters;
 import methods.Funcion;
 
 @RunWith(value = Parameterized.class)
+@Ignore
 public class GRFourierTestCase {
 	
 	private Funcion function;
