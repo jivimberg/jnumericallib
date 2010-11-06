@@ -1,5 +1,26 @@
 package methods;
 
+/**
+ * <p>
+ * En análisis numérico, el Método de Romberg genera una matriz triangular cuyos
+ * elementos son estimaciones numéricas de la integral definida siguiente:
+ * </p>
+ * <br>
+ * <img src="..\resources\R1.png" > <br>
+ * <p>
+ * usando la extrapolación de Richardson de forma reiterada en la regla del
+ * trapecio. El método de Romberg evalúa el integrando en puntos equiespaciados
+ * del intervalo de integración estudiado. Para que este método funcione, el
+ * integrando debe ser suficientemente derivable en el intervalo, aunque se
+ * obtienen resultados bastante buenos incluso para integrandos poco derivables.
+ * Aunque es posible evaluar el integrando en puntos no equespaciados, en ese
+ * caso otros métodos como la cuadratura gaussiana o la cuadratura de
+ * Clenshaw–Curtis son más adecuados.
+ * </p>
+ * El método se define de forma recursiva así:
+ * <br>
+ * <img src="..\resources\R2.png" > <br>
+ */
 public class Romberg {
 
 	 /**

@@ -14,7 +14,7 @@ import exceptions.RaizNoEncontradaExcepcion;
  * de biseccion se aplica al subintervalo donde el cambio de signo ocurre.</p>
  * 
  * <img alt="Bisection"  height="250"  width="291"  
- * src=Bisection_method.png >
+ * src="..\resources\Bisection_method.png" >
  *
  * <br>
  * <b> Condiciones suficientes </b>: que haya una raiz en el intervalo, que esa
@@ -33,6 +33,9 @@ public class Biseccion {
      * @param b          el valor de la derecha
      * @param error      el nivel de error tolerado
      * @param iterations el maximomo numero de iteraciones permitidas
+     * @return raiz de la funcion
+     * @throws RaizNoEncontradaExcepcion en caso de que la raiz no haya podidod ser encontrada
+     * o que la funcion no cumpla con las condiciones minimas necesarias
      */
 
     public static double findRoot(Funcion f, double a, double b, double error, int iterations)
