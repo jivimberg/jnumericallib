@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import methods.Function;
+import methods.Funcion;
 import methods.interpolators.InterpolacionLineal;
 import methods.interpolators.InterpolacionNewton;
 
@@ -23,9 +23,9 @@ public class InterpolacionNewtonTestCase {
 	private static final double ERROR = 0.00001;
 
 	private List<Point2D.Double> points;
-	private Function expectedFunction;
+	private Funcion expectedFunction;
 	
-	public InterpolacionNewtonTestCase(List<Point2D.Double> points, Function expectedFunction) {
+	public InterpolacionNewtonTestCase(List<Point2D.Double> points, Funcion expectedFunction) {
 		this.points = points;
 		this.expectedFunction = expectedFunction;
 	}
@@ -33,7 +33,7 @@ public class InterpolacionNewtonTestCase {
 	@Test
     public void testLinearInterpolator(){
         InterpolacionNewton li = new InterpolacionNewton();
-        Function interpolation = li.interpolate(points);
+        Funcion interpolation = li.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));
         }
@@ -44,7 +44,7 @@ public class InterpolacionNewtonTestCase {
     	assertEquals("The index founded was not the expected", expected, actual, ERROR);
 	}
 	
-	private static void printResult(Function function) {
+	private static void printResult(Funcion function) {
     	for(int i = 0; i<7; i++) {
     		System.out.println("f("+i+") = " + function.eval(i));
     	}
@@ -59,8 +59,8 @@ public class InterpolacionNewtonTestCase {
         return points;
     }
     
-    private static Function createExpectedFunction() {
-    	return new Function() {
+    private static Funcion createExpectedFunction() {
+    	return new Funcion() {
     		@Override
     		public double eval(double x) {
     			if(x == 0) return 0;

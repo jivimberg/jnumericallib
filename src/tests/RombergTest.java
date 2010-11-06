@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
 
-import methods.Function;
+import methods.Funcion;
 import methods.Romberg;
 
 import org.junit.Test;
@@ -16,14 +16,14 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(value = Parameterized.class)
 public class RombergTest {
 
-	private Function function;
+	private Funcion function;
 	private String functionString;
 	private double a;
 	private double b;
 	private int k;
 	private double expectedResult;
 	
-	public RombergTest (Function function, String functionString,
+	public RombergTest (Funcion function, String functionString,
 			double a, double b, int k, double expectedResult) {
 		super();
 		this.function = function;
@@ -37,7 +37,7 @@ public class RombergTest {
 	@Parameters
     public static Collection<Object[]> data() {
     	//Function 1
-    	final Function f1 = new Function(){
+    	final Funcion f1 = new Funcion(){
             public double eval(double x){
             	return 1 / x;
             }
@@ -46,7 +46,7 @@ public class RombergTest {
         double expectedResult = 0.69314718191;
         
         //Function 2
-    	final Function f2 = new Function(){
+    	final Funcion f2 = new Funcion(){
             public double eval(double x){
             	return Math.pow(Math.E, Math.pow(x, 2));
             }

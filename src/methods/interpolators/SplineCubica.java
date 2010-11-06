@@ -3,7 +3,7 @@ package methods.interpolators;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-import methods.Function;
+import methods.Funcion;
 
 /**
  * Una <b>Spline Cubica</b> es una Spline compuesta de segmentos de polinomios de tercer orden que pasan a 
@@ -21,10 +21,10 @@ public class SplineCubica implements Interpolador{
      * @return Function generada por la interpolacion
      */
 	
-    public Function interpolate(final List<Point2D.Double> points) {
+    public Funcion interpolate(final List<Point2D.Double> points) {
         final int n = points.size();
         final double[][] constants = this.calculateConstant(points);
-        return new Function() {
+        return new Funcion() {
         	public double eval(double x){
         		if(x<points.get(0).x || x>points.get(n-1).x) {
         			//TODO que devuelva una exception

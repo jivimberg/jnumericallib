@@ -1,11 +1,11 @@
 package methods.interpolators;
 
-import methods.Function;
+import methods.Funcion;
 
 import java.awt.geom.Point2D;
 import java.util.List;
 
 public interface Interpolador {
 
-    public Function interpolate( List<Point2D.Double> points);
+    public Funcion interpolate( List<Point2D.Double> points);
 }

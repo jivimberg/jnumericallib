@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import methods.Function;
+import methods.Funcion;
 import methods.interpolators.SplineCubica;
 import methods.interpolators.Interpolador;
 
@@ -35,7 +35,7 @@ public class SplineCubicaTestCase {
 	@Test
 	public void testCubicSpline() {
 		Interpolador li = new SplineCubica();
-    	Function function = li.interpolate(points);
+    	Funcion function = li.interpolate(points);
     	
     	for (int i = 0; i < xValues.length; i++) {
    			testAssertEquals(yValues[i], function.eval(xValues[i]));	
@@ -43,7 +43,7 @@ public class SplineCubicaTestCase {
     	printResult(function);
 	}
 	
-	private void printResult(Function function) {
+	private void printResult(Funcion function) {
 		for (int i = 0; i < xValues.length; i++) {
 			double x = xValues[i];
 			System.out.println("f("+x+") = "+ function.eval(x));

@@ -7,18 +7,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import methods.Function;
+import methods.Funcion;
 
 @RunWith(value = Parameterized.class)
 public class GRFourierTestCase {
 	
-	private Function function;
+	private Funcion function;
 	private String functionString;
 	private int n;
 	private int m;
 	private double l;
 	
-	public GRFourierTestCase(Function function, String functionString, int n, int m, double l) {
+	public GRFourierTestCase(Funcion function, String functionString, int n, int m, double l) {
 		this.function = function;
 		this.functionString = functionString;
 		this.n = n;
@@ -28,7 +28,7 @@ public class GRFourierTestCase {
 	
 	@Parameters
     public static Collection<Object[]> data() {
-    	final Function function = new Function(){
+    	final Funcion function = new Funcion(){
             public double eval(double x){
                 return  Math.pow(x,3) + 4 * Math.pow(x,2) - 10;
             }
