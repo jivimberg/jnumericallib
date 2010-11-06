@@ -30,10 +30,10 @@ public class NumericMethods {
 	/**
 	 * Este metodo encuentra la raiz de la funcion por medio de Newton Raphson
 	 * @param f la funcion a la cual le queremos hayar la raiz
-     * @param fderived la derivada de la funcion 
+     * @param derivedf la derivada de la funcion 
      * @param p0            punto de inicio. Debe ser lo mas cercano posible a la raiz
      * @param error         margen de error tolerado
-     * @param maxIterations numero maximo de iteraciones permitidas
+     * @param iterations numero maximo de iteraciones permitidas
      * @return raiz de la funcion
      * @throws RaizNoEncontradaExcepcion en caso de que la raiz no haya podidod ser encontrada
      * o que la funcion no cumpla con las condiciones minimas necesarias
