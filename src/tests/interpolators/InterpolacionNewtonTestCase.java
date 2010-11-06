@@ -9,8 +9,8 @@ import java.util.Collection;
 import java.util.List;
 
 import methods.Function;
-import methods.interpolators.LinearInterpolator;
-import methods.interpolators.NewtonInterpolator;
+import methods.interpolators.InterpolacionLineal;
+import methods.interpolators.InterpolacionNewton;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,21 +18,21 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(value = Parameterized.class)
-public class NewtonInterpolatorTestCase {
+public class InterpolacionNewtonTestCase {
 
 	private static final double ERROR = 0.00001;
 
 	private List<Point2D.Double> points;
 	private Function expectedFunction;
 	
-	public NewtonInterpolatorTestCase(List<Point2D.Double> points, Function expectedFunction) {
+	public InterpolacionNewtonTestCase(List<Point2D.Double> points, Function expectedFunction) {
 		this.points = points;
 		this.expectedFunction = expectedFunction;
 	}
 
 	@Test
     public void testLinearInterpolator(){
-        NewtonInterpolator li = new NewtonInterpolator();
+        InterpolacionNewton li = new InterpolacionNewton();
         Function interpolation = li.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));

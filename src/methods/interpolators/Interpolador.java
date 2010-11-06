@@ -5,7 +5,7 @@ import methods.Function;
 import java.awt.geom.Point2D;
 import java.util.List;
 
-public interface Interpolator {
+public interface Interpolador {
 
     public Function interpolate( List<Point2D.Double> points);
 }

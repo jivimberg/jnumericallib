@@ -6,22 +6,19 @@ import java.util.List;
 import methods.Function;
 
 /**
- * Una spline cubica es una spline compuesta de segmentos de polinomios de tercer orden que pasan a traves de una serie de
- * puntos de control. La segunda derivada de cada polinomio es comunmente cero en cada punto final, esto provee las condiciones de contorno que
- * completan el sistema de ecuaciones. Esto produce lo llamado spline cubica "natural" y lleva a un sistema simple tridiagonal que puede
+ * Una <b>Spline Cubica</b> es una Spline compuesta de segmentos de polinomios de tercer orden que pasan a 
+ * traves de una serie de puntos de control. La segunda derivada de cada polinomio es comunmente cero en 
+ * cada punto final, esto provee las condiciones de contorno que completan el sistema de ecuaciones. Esto 
+ * produce lo llamado <b>Spline Cubica <i>Natural</i></b> y lleva a un sistema simple tridiagonal que puede
  * ser facilmente resuelto dando los coeficientes de los polinomios.
- * 
- * @author jivimberg
- * @author danielorozco87
  */
 
-public class CubicSpline implements Interpolator{
+public class SplineCubica implements Interpolador{
 	
-	private static final String METHOD_NAME = "Cubic Spline";
-    
     /**
-     * Interpola la funcion usando Spline Cubica Natural
-     * @param points  Set de puntos a usarse en la interpolacion
+     * Interpola la funcion usando <b>Spline Cubica Natural</b>
+     * @param points Set de puntos a usarse para la interpolacion
+     * @return Function generada por la interpolacion
      */
 	
     public Function interpolate(final List<Point2D.Double> points) {
@@ -57,9 +54,7 @@ public class CubicSpline implements Interpolator{
         double[] w = new double[n];
 
         for (int i = 0; i < n - 1; i++) {
-        	//Hi es Xi+1 - Xi
             h[i] = points.get(i + 1).x - points.get(i).x;
-            //Wi es 6 * (Yi+1 - Yi) / Hi
             w[i] = 6 * (points.get(i + 1).y - points.get(i).y) / h[i];
         }
 
