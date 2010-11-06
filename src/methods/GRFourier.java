@@ -3,8 +3,6 @@ package methods;
 
 public class GRFourier {
 
-	private static final String METHOD_NAME = "GRFourier";
-
     /**
      * El metodo de Goertzel-Reinsh para funciones periodicas aproxima una
      * funcion en base a otra funcion creada a partir de funciones base entre

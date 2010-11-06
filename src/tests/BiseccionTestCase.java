@@ -17,7 +17,7 @@ import org.junit.runners.Parameterized.Parameters;
 import exceptions.RaizNoEncontradaExcepcion;
 
 @RunWith(value = Parameterized.class)
-public class BisectionTestCase {
+public class BiseccionTestCase {
 	
 	private Funcion function;
 	private String functionString;
@@ -27,7 +27,7 @@ public class BisectionTestCase {
 	private double error;
 	private int iterations;
 	
-	public BisectionTestCase(Funcion function, String functionString,
+	public BiseccionTestCase(Funcion function, String functionString,
 			 double a, double b, double error, int iterations, double expected) {
 		super();
 		this.function = function;
