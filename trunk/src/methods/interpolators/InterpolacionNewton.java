@@ -7,9 +7,13 @@ import java.util.List;
 import methods.Funcion;
 
 /**
- * La <b>Interpolacion De Newton</b> es una funcion que interpola una serie de puntos utilizando el polinomio de Newton.
- * Con el polinomio de interpolacion de Newton se logra aproximar un valor de la función f(x) en un valor desconocido de x. 
+ * La <b>Interpolacion De Newton</b> es un tipo de interpolacion polinomica que utiliza el polinomio de Newton.
+ * La interpolacion polinomica es una técnica de interpolación de un conjunto de datos o de una función por un polinomio. Es 
+ * decir, dado cierto numero de puntos obtenidos por muestreo o a partir de un experimento, se pretende encontrar un polinomio 
+ * que pase por todos esos puntos.
+ * Con el polinomio de interpolacion de Newton se logra aproximar los valor de la función f(x) para cualquier x conocido. 
  * Este polinomio puede ser de grado 0, caso particular llamado <i>Interpolacion Lineal</i>, o de grado mayor.
+ * 
  *
  */
 public class InterpolacionNewton implements Interpolador {

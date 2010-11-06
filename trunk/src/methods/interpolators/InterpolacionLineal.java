@@ -9,7 +9,9 @@ import methods.Funcion;
  * La <b>Interpolacion Lineal</b> es un caso particular de la Interpolacion general de Newton. Con el polinomio 
  * de interpolacion de Newton se logra aproximar un valor de la función f(x) en un valor desconocido de x. El 
  * caso particular, para que una interpolacion sea lineal, es que el que se utiliza un polinomio de interpolacion 
- * de grado 1.
+ * de grado 1, y se denota de la siguiente manera:
+ * <br>
+ * <img src="../../resources/formulaInterpolacionLineal.png" alt=""/>
  *
  */
 public class InterpolacionLineal implements Interpolador{
