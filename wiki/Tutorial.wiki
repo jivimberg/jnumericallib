@@ -2,7 +2,7 @@
 
 Usar jnumericallib es sumamente sencillo. En esta sección presentaremos algunos ejemplos de uso para ilustrar lo sencillo que es el uso de la librería.
 
-== Ejemplo Método numérico ==
+== Ejemplo Método Numérico ==
 
 En este caso veremos un ejemplo del uso del *Método de Bisección*. Para aplicar este método lo único que debemos hacer es seguir los siguientes pasos.
 
