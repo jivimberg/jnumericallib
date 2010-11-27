@@ -7,7 +7,7 @@ import exceptions.RaizNoEncontradaExcepcion;
  *
  */
 
-public class NumericMethods {
+public class MetodosNumericos {
 	
 	/**
 	 * Haya la raiz de una funcion aplicando el metodo de Biseccion. Para una mayor informacion 
