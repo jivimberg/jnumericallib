@@ -14,7 +14,7 @@ import methods.Funcion;
  * <img src="../../resources/formulaInterpolacionLineal.png" alt=""/>
  *
  */
-public class InterpolacionLineal implements Interpolador{
+public class InterpolacionLineal {
 	
 	/**
      * Interpola la funcion usando <b>Interpolacion Lineal</b>
@@ -22,7 +22,7 @@ public class InterpolacionLineal implements Interpolador{
      * @return Funcion generada por la interpolacion
      */
 
-	public final Funcion interpolate(final List<Point2D.Double> points) {
+	public static final Funcion interpolate(final List<Point2D.Double> points) {
 		return new Funcion() {
 			public double eval(double x) {
 				double w = 0;

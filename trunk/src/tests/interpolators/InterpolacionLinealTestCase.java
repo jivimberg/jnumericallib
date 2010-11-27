@@ -29,8 +29,7 @@ public class InterpolacionLinealTestCase {
 	
     @Test
     public void testLinearInterpolator(){
-        InterpolacionLineal li = new InterpolacionLineal();
-        Funcion interpolation = li.interpolate(points);
+        Funcion interpolation = InterpolacionLineal.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));
         }

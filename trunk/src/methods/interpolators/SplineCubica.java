@@ -15,7 +15,7 @@ import methods.Funcion;
  * <img src="../../resources/imagenSplineCubica.png" alt=""/>
  */
 
-public class SplineCubica implements Interpolador{
+public class SplineCubica{
 	
     /**
      * Interpola la funcion usando <b>Spline Cubica Natural</b>
@@ -23,9 +23,9 @@ public class SplineCubica implements Interpolador{
      * @return Funcion generada por la interpolacion
      */
 	
-    public Funcion interpolate(final List<Point2D.Double> points) {
+    public static Funcion interpolate(final List<Point2D.Double> points) {
         final int n = points.size();
-        final double[][] constants = this.calculateConstant(points);
+        final double[][] constants = calculateConstant(points);
         return new Funcion() {
         	public double eval(double x){
         		if(x<points.get(0).x || x>points.get(n-1).x) {
@@ -49,7 +49,7 @@ public class SplineCubica implements Interpolador{
         };
     }
     
-    private double[][] calculateConstant(final List<Point2D.Double> points) {
+    private static double[][] calculateConstant(final List<Point2D.Double> points) {
     	final int n = points.size();
 
         double[] h = new double[n];
@@ -72,7 +72,7 @@ public class SplineCubica implements Interpolador{
         return s;
     }
 
-    private double[] solveTridiagonalSystem(int n, double[] h, double[] w) {
+    private static double[] solveTridiagonalSystem(int n, double[] h, double[] w) {
         double[] a = new double[n];
         double[] b = new double[n];
         double[] c = new double[n];

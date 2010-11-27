@@ -10,7 +10,6 @@ import java.util.List;
 
 import methods.Funcion;
 import methods.interpolators.SplineCubica;
-import methods.interpolators.Interpolador;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,8 +33,7 @@ public class SplineCubicaTestCase {
 	
 	@Test
 	public void testCubicSpline() {
-		Interpolador li = new SplineCubica();
-    	Funcion function = li.interpolate(points);
+    	Funcion function = SplineCubica.interpolate(points);
     	
     	for (int i = 0; i < xValues.length; i++) {
    			testAssertEquals(yValues[i], function.eval(xValues[i]));	
