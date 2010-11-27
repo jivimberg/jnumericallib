@@ -3,7 +3,7 @@ package methods;
 import exceptions.RaizNoEncontradaExcepcion;
 
 /**
- * Esta clase sirve como unico punto de acceso a la libreria. Simplificando de esta manera su uso.
+ * Esta clase sirve como unico punto de acceso a la libreria para metodos numericos. Simplificando de esta manera su uso.
  *
  */
 
@@ -21,7 +21,7 @@ public class NumericMethods {
      * @throws RaizNoEncontradaExcepcion en caso de que la raiz no haya podidod ser encontrada
      * o que la funcion no cumpla con las condiciones minimas necesarias
 	 */
-	public double bisection(Funcion f, double a, double b, double error, int iterations) 
+	public static double bisection(Funcion f, double a, double b, double error, int iterations) 
 		throws RaizNoEncontradaExcepcion
 	{
 		return Biseccion.findRoot(f, a, b, error, iterations);
@@ -38,7 +38,7 @@ public class NumericMethods {
      * @throws RaizNoEncontradaExcepcion en caso de que la raiz no haya podidod ser encontrada
      * o que la funcion no cumpla con las condiciones minimas necesarias
 	 */
-	public double newtonRaphson(Funcion f, Funcion derivedf, double p0, double error, int iterations) 
+	public static double newtonRaphson(Funcion f, Funcion derivedf, double p0, double error, int iterations) 
 		throws RaizNoEncontradaExcepcion{
 		return NewtonRaphson.findRoot(f, derivedf, p0, error, iterations);
 	}
@@ -51,7 +51,7 @@ public class NumericMethods {
      * @param k cantidad de intervalos
      * @return la integral calculada
      */
-	public double romberg(Funcion f, double a, double b, int k){
+	public static double romberg(Funcion f, double a, double b, int k){
 		return Romberg.romberg(f, a, b, k);
 	}
 

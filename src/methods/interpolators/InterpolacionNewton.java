@@ -1,7 +1,6 @@
 package methods.interpolators;
 
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.List;
 
 import methods.Funcion;
@@ -16,15 +15,14 @@ import methods.Funcion;
  * 
  *
  */
-public class InterpolacionNewton implements Interpolador {
+public class InterpolacionNewton {
 
 	/**
      * Interpola la funcion usando <b>Interpolacion de Newton</b>
      * @param points Set de puntos a usarse para la interpolacion
      * @return Funcion generada por la interpolacion
      */
-	
-	public final Funcion interpolate(final List<Point2D.Double> points) {
+	public static final Funcion interpolate(final List<Point2D.Double> points) {
 		final double[] a = divDif(points);
 		return new Funcion() {
 			public double eval(double x) {
@@ -33,7 +31,7 @@ public class InterpolacionNewton implements Interpolador {
         };
 	}
 
-	private double[] divDif(List<Point2D.Double> points) {
+	private static double[] divDif(List<Point2D.Double> points) {
 		int N = points.size();
 		double[][] M = new double[N][N];
 		for (int i = 0; i < N; i++)
@@ -44,7 +42,7 @@ public class InterpolacionNewton implements Interpolador {
 		return M[0];
 	}
 
-	private final Funcion horner(final double[] a, final List<Point2D.Double> points) {
+	private static final Funcion horner(final double[] a, final List<Point2D.Double> points) {
 		return new Funcion() {
 			public double eval(double x) {
 				int n = a.length;
@@ -55,26 +53,4 @@ public class InterpolacionNewton implements Interpolador {
 			}
         };
 	}
-
-    public static void main (String[] args){
-        List<Point2D.Double> points = createPoints();
-        InterpolacionNewton li = new InterpolacionNewton();
-        Funcion function = li.interpolate(points);
-        printResult(function);
-    }
-    
-    private static void printResult(Funcion function) {
-    	for(int i = 0; i<7; i++) {
-    		System.out.println("f("+i+") = " + function.eval(i));
-    	}
-    }
-    
-    public static List<Point2D.Double> createPoints() {
-        List<Point2D.Double> points = new ArrayList<Point2D.Double>();
-        points.add(new Point2D.Double(0, 0));
-        points.add(new Point2D.Double(2, 4));
-        points.add(new Point2D.Double(4, 0));
-        points.add(new Point2D.Double(5, 8));
-        return points;
-    }
 }

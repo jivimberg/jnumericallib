@@ -31,8 +31,7 @@ public class InterpolacionNewtonTestCase {
 
 	@Test
     public void testLinearInterpolator(){
-        InterpolacionNewton li = new InterpolacionNewton();
-        Funcion interpolation = li.interpolate(points);
+        Funcion interpolation = InterpolacionNewton.interpolate(points);
         for(int i = 0; i<7; i++) {
         	testAssertEquals(expectedFunction.eval(i), interpolation.eval(i));
         }
