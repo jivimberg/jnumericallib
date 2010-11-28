@@ -1,6 +1,9 @@
 package methods;
 
 public class Adams {
+	private static final String METHOD_NAME = "Adams";
+
+	
 	private RungeKutta runge = new RungeKutta();
 
 	private double[] bashforthCoefficients;
