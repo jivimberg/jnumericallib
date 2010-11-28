@@ -73,9 +73,9 @@ public class InterpolacionNewtonTestCase {
     	};
  	}
      
-     @Parameters
-     public static Collection<Object[]> data() {
-         Object[][] parameters = new Object[][] {{createPoints(), createExpectedFunction()}};    
-     	return Arrays.asList(parameters);
-     }
+    @Parameters
+    public static Collection<Object[]> data() {
+    	Object[][] parameters = new Object[][] {{createPoints(), createExpectedFunction()}};    
+    	return Arrays.asList(parameters);
+    }
 }
